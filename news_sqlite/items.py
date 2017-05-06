@@ -30,3 +30,19 @@ class NfrbItem(scrapy.Item):
     text = scrapy.Field()
     link = scrapy.Field()
     pass
+
+
+class BytSzjjItem(scrapy.Item):
+    title = scrapy.Field()
+    publish = scrapy.Field()
+    text = scrapy.Field()
+    link = scrapy.Field()
+    pass
+
+
+class BytPlItem(scrapy.Item):
+    title = scrapy.Field()
+    publish = scrapy.Field()
+    text = scrapy.Field()
+    link = scrapy.Field()
+    pass
