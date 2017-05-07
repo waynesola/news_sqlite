@@ -20,8 +20,8 @@ class AllArticles(scrapy.Spider):
 
     # 爬取指定日期的报纸，只需修改 start 和 end 参数即可。
     def parse(self, response):
-        start = datetime.datetime(2017, 5, 1)
-        end = datetime.datetime(2017, 5, 1)
+        start = datetime.datetime(2017, 4, 1)
+        end = datetime.datetime(2017, 4, 30)
         for r in arrow.Arrow.range('day', start, end):
             year_month = r.format('YYYY-MM')
             day = r.format('DD')
