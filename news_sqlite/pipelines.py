@@ -14,7 +14,7 @@ class NewsSqlitePipeline(object):
         if item.__class__ == SztqbItem:  # 此句非必要，在多个items时可能需要用到
             conn = sqlite3.connect('C:/Program Files/DB Browser for SQLite/database/database.db')
             cur = conn.cursor()
-            sql = "insert into sztqb_201704(title,publish,link,text) values (?,?,?,?)"
+            sql = "insert into sztqb_201701(title,publish,link,text) values (?,?,?,?)"
             cur.execute(sql, (item['title'], item['publish'], item['link'], item['text'],))
             conn.commit()
             cur.close()
@@ -22,7 +22,7 @@ class NewsSqlitePipeline(object):
         elif item.__class__ == RmrbItem:  # 此句非必要，在多个items时可能需要用到
             conn = sqlite3.connect('C:/Program Files/DB Browser for SQLite/database/database.db')
             cur = conn.cursor()
-            sql = "insert into rmrb_201704(title,publish,link,text) values (?,?,?,?)"
+            sql = "insert into rmrb_201701(title,publish,link,text) values (?,?,?,?)"
             cur.execute(sql, (item['title'], item['publish'], item['link'], item['text'],))
             conn.commit()
             cur.close()
@@ -30,7 +30,7 @@ class NewsSqlitePipeline(object):
         elif item.__class__ == NfrbItem:  # 此句非必要，在多个items时可能需要用到
             conn = sqlite3.connect('C:/Program Files/DB Browser for SQLite/database/database.db')
             cur = conn.cursor()
-            sql = "insert into nfrb_201704(title,publish,link,text) values (?,?,?,?)"
+            sql = "insert into nfrb_201701(title,publish,link,text) values (?,?,?,?)"
             cur.execute(sql, (item['title'], item['publish'], item['link'], item['text'],))
             conn.commit()
             cur.close()

@@ -20,8 +20,8 @@ class AllArticles(scrapy.Spider):
 
     # 爬取指定日期的报纸，只需修改 start 和 end 参数即可。
     def parse(self, response):
-        start = datetime.datetime(2017, 4, 1)
-        end = datetime.datetime(2017, 4, 30)
+        start = datetime.datetime(2017, 1, 1)
+        end = datetime.datetime(2017, 1, 31)
         for r in arrow.Arrow.range('day', start, end):
             year_month = r.format('YYYY-MM')
             day = r.format('DD')
@@ -60,13 +60,13 @@ class AllArticles(scrapy.Spider):
         h1 = soup.find('div', id="print_area").find('h1')
         text = "    "
         if span.string is not None:
-            text += span.string + "\n    "
-        text += h1.get_text() + "\n    "
+            text += span.string + "\n\n    "
+        text += h1.get_text() + "\n\n    "
         if span.next_sibling.string is not None:
-            text += span.next_sibling.string + "\n"
+            text += span.next_sibling.string + "\n\n    "
         ps = soup.find("founder-content").find_all('p')
         for p in ps:
-            text += p.get_text() + '\n'
+            text += p.get_text() + '\n   '
         title = h1.get_text()
         item['title'] = title
         item['text'] = text
