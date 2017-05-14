@@ -66,7 +66,7 @@ class AllArticles(scrapy.Spider):
             text += span.next_sibling.string + "\n\n    "
         ps = soup.find("founder-content").find_all('p')
         for p in ps:
-            text += p.get_text() + '\n   '
+            text += p.get_text() + '\n\n'
         title = h1.get_text()
         item['title'] = title
         item['text'] = text
